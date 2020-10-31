@@ -1,4 +1,5 @@
 'use strict'
+const User = use('App/Models/User');
 
 class UserController {
   getUsers() {
@@ -9,13 +10,16 @@ class UserController {
     ];
   }
 
-  index({ request, response }) {
+  async index() {
+    const users = await User.all();
 
-    return response.send(this.getUsers());
+    return users;
   }
 
-  show({ params }) {
-    return this.getUsers().filter(u => (u.id == params.id));
+  async show({ params }) {
+    const user = await User.findOrFail(paramsasync .id)
+
+    return user;
   }
 }
 

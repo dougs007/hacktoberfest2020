@@ -20,8 +20,6 @@ Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
 
-// Route.get('/', 'UserController.index');
-
 Route
   .post('users', 'UserController.store')
   .validator('StoreUser')
