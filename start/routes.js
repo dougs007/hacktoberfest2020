@@ -22,4 +22,10 @@ Route.get('/', () => {
 
 // Route.get('/', 'UserController.index');
 
-Route.resource('users', 'UserController').apiOnly();
+Route
+  .post('users', 'UserController.store')
+  .validator('StoreUser')
+
+Route.resource('users', 'UserController')
+  .apiOnly()
+  .except(['store']);
