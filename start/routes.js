@@ -20,10 +20,6 @@ Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
 
-Route.get('/users', () => {
-  return [
-    {name: 'Douglas',  age: 21, occupation: 'Developer'},
-    {name: 'João',     age: 21, occupation: 'Analyst'},
-    {name: 'John Doe', age: 21, occupation: 'Scrum Master'},
-  ];
-});
+// Route.get('/', 'UserController.index');
+
+Route.resource('users', 'UserController').apiOnly();
